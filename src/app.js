@@ -1,4 +1,5 @@
 const express = require('express');
+const { firstCharacters } = require('./lib/strings');
 
 const app = express();
 
@@ -16,12 +17,13 @@ app.get('/strings/lower/:string', (req, res) => {
   res.status(200).send({ result: `${req.params.string}`.toLowerCase() });
 });
 
-app.get('/strings/first-characters/:string', (req, res) => {
+/* app.get('/strings/first-characters/:string', (req, res) => {
   res.status(200).send({ result: `${req.params.string[0]}` });
-});
+}); */
 
-app.get('/strings/first-characters/?result=sd32fg45', (req, res) => {
-  res.status(200).send({ result: `${req.query.length}` });
+app.get('/strings/first-characters/:string', (req, res) => {
+  console.log(req.query);
+  res.status(200).send({ result: firstCharacters(req.params.string, req.query.length) });
 });
 
 // NUMBERS

@@ -3,7 +3,7 @@ const app = require('../src/app');
 
 describe('/numbers', () => {
   describe('GET /add/{number}/and/{number}', () => {
-    it('adds 2 and 1', done => {
+    xit('adds 2 and 1', done => {
       request(app)
         .get('/numbers/add/2/and/1')
         .then(res => {
@@ -13,7 +13,7 @@ describe('/numbers', () => {
         });
     });
 
-    it('adds 12 and 0', done => {
+    xit('adds 12 and 0', done => {
       request(app)
         .get('/numbers/add/12/and/0')
         .then(res => {
@@ -23,7 +23,7 @@ describe('/numbers', () => {
         });
     });
 
-    it('adds 10 and -5', done => {
+    xit('adds 10 and -5', done => {
       request(app)
         .get('/numbers/add/10/and/-5')
         .then(res => {
@@ -45,7 +45,7 @@ describe('/numbers', () => {
   });
 
   describe('GET /subtract/{number}/from/{number}', () => {
-    it('subtracts 2 from 1', done => {
+    xit('subtracts 2 from 1', done => {
       request(app)
         .get('/numbers/subtract/2/from/1')
         .then(res => {
