@@ -31,12 +31,12 @@ app.get('/strings/first-characters/:string', (req, res) => {
 app.get('/numbers/add/:a/and/:b', (req, res) => {
   const a = parseInt(req.params.a);
   const b = parseInt(req.params.b);
-  res.status(200).json({ result: a + b });
-  /* if (typeof a && b === 'number') {
-    res.status(200).json({ result: a + b });
+  console.log(typeof a, a);
+  if (!a && !b) {
+    res.status(400).send({ error: 'Parameters must be valid numbers.' });
   } else {
-    res.status(200).send({ result: 'Parameters must be valid numbers.' });
-  } */
+    res.status(200).json({ result: a + b });
+  }
 });
 
 app.get('/numbers/subtract/:a/from/:b', (req, res) => {
