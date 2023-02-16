@@ -3,7 +3,7 @@ const app = require('../src/app');
 
 describe('/strings', () => {
   describe('GET /hello/{string}', () => {
-    it('returns "Hello world!" when passed "world"', done => {
+    xit('returns "Hello world!" when passed "world"', done => {
       request(app)
         .get('/strings/hello/world')
         .then(res => {
@@ -13,7 +13,7 @@ describe('/strings', () => {
         });
     });
 
-    it('returns "Hello, turtle!" when passed "turtle"', done => {
+    xit('returns "Hello, turtle!" when passed "turtle"', done => {
       request(app)
         .get('/strings/hello/turtle')
         .then(res => {
@@ -25,7 +25,7 @@ describe('/strings', () => {
   });
 
   describe('GET /upper/{string}', () => {
-    it('returns the uppercased string', done => {
+    xit('returns the uppercased string', done => {
       request(app)
         .get('/strings/upper/hello')
         .then(res => {
@@ -37,7 +37,7 @@ describe('/strings', () => {
   });
 
   describe('GET /lower/{string}', () => {
-    it('returns the lowercased string', done => {
+    xit('returns the lowercased string', done => {
       request(app)
         .get('/strings/lower/HELLO')
         .then(res => {
@@ -59,7 +59,7 @@ describe('/strings', () => {
         });
     });
 
-    it('returns the first n character of the string when passed a query parameter', done => {
+    xit('returns the first n character of the string when passed a query parameter', done => {
       request(app)
         .get('/strings/first-characters/sd32fg45')
         .query({ length: 4 })

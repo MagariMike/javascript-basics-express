@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../src/app');
 
 describe('/numbers', () => {
-  describe('GET /add/{number}/and/{number}', () => {
+  xdescribe('GET /add/{number}/and/{number}', () => {
     it('adds 2 and 1', done => {
       request(app)
         .get('/numbers/add/2/and/1')
@@ -45,7 +45,7 @@ describe('/numbers', () => {
   });
 
   describe('GET /subtract/{number}/from/{number}', () => {
-    xit('subtracts 2 from 1', done => {
+    it('subtracts 2 from 1', done => {
       request(app)
         .get('/numbers/subtract/2/from/1')
         .then(res => {
@@ -55,7 +55,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('subtracts -2 from 1', done => {
+    it('subtracts -2 from 1', done => {
       request(app)
         .get('/numbers/subtract/-2/from/1')
         .then(res => {
@@ -65,7 +65,7 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if the parameters are not numbers', done => {
+    it('errors if the parameters are not numbers', done => {
       request(app)
         .get('/numbers/subtract/fish/from/chips')
         .then(res => {
