@@ -54,7 +54,9 @@ app.get('/numbers/subtract/:a/from/:b', (req, res) => {
 // LOOK INTO THIS!
 
 app.post('/numbers/multiply', (req, res) => {
-  res.status(200).send({ result: multiply(req.body.a, req.body.b) });
+  const a = parseInt(req.body.a);
+  const b = parseInt(req.body.b);
+  res.status(200).send({ result: multiply(a, b) });
 });
 
 module.exports = app;
