@@ -54,9 +54,17 @@ app.get('/numbers/subtract/:a/from/:b', (req, res) => {
 // LOOK INTO THIS!
 
 app.post('/numbers/multiply', (req, res) => {
-  const a = parseInt(req.body.a);
-  const b = parseInt(req.body.b);
+  const { a } = req.body;
+  const { b } = req.body;
+  if (isNaN(Number(a)) || isNaN(Number(b))) {
+    res.status(400).send({ error: 'Parameters "a" and "b" must be valid numbers.' });
+  }
+  if (!a || !b) {
+    res.status(400).send({ error: 'Parameters "a" and "b" must be valid numbers.' });
+  }
+
   res.status(200).send({ result: multiply(a, b) });
+  // ADD IN 0 EDGE CASE
 });
 
 module.exports = app;

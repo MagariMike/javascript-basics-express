@@ -99,18 +99,18 @@ describe('/numbers', () => {
         });
     });
 
-    xit('errors if a parameter is missing', done => {
+    it('errors if a parameter is missing', done => {
       request(app)
         .post('/numbers/multiply')
         .send({ a: 'fish' })
         .then(res => {
           expect(res.status).toEqual(400);
-          expect(res.body).toEqual({ error: 'Parameters "a" and "b" are required.' });
+          expect(res.body).toEqual({ error: 'Parameters "a" and "b" must be valid numbers.' });
           done();
         });
     });
 
-    xit('errors if the parameters are not numbers', done => {
+    it('errors if the parameters are not numbers', done => {
       request(app)
         .post('/numbers/multiply')
         .send({ a: 'fish', b: 'chips' })
